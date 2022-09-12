@@ -5,7 +5,7 @@ import {Context} from "../Context"
 
 export default function Photos() {
     //havrest id, src and isfavorite from the provider array
-    const {products, cartedItems} = React.useContext(Context)
+    const {products} = React.useContext(Context)
     
     return (
             <main className="photos">
