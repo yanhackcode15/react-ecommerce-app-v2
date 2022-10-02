@@ -165,4 +165,7 @@ button:active {
     text-align: center;
     margin: 20px;
 }
+.paypal-buttons {
+    align-self: center;
+}
 

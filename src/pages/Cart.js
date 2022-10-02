@@ -2,8 +2,9 @@ import React from "react"
 import {Link} from "react-router-dom"
 import {Context} from "../Context"
 import CartItem from "../components/CartItem"
-
+import {PayPalButtons} from "@paypal/react-paypal-js"
 //add a time delay to mimic order placement
+{/* <Link className="place-order" to="/confirmation"><button className="place-order" onClick={placeOrder}>Place Order</button></Link> */}
 export default function Cart() {
     const {cartedItems, setCartedItems} = React.useContext(Context)
     function placeOrder() {
@@ -12,15 +13,38 @@ export default function Cart() {
     function calcTotalPrice(){
        return cartedItems.reduce((total, item)=>(total+item.price),0)
     }
+    const totalPrice = calcTotalPrice()
     return (
         <main className="cartPage">
             <h1>Checkout</h1>
             <div className="cart-items">
-                {cartedItems.map(item=>(<CartItem item={item} />
+                {cartedItems.map(item=>(<CartItem key={item.id} item={item} />
         ))}
             </div>
-            <h2>{`Total: $${calcTotalPrice()}`}</h2>
-            {cartedItems.length?<Link className="place-order" to="/confirmation"><button className="place-order" onClick={placeOrder}>Place Order</button></Link>: <h2>Add something to the cart...</h2>}
+            <h2>{`Total: $${totalPrice}`}</h2>
+            {cartedItems.length?
+            <PayPalButtons
+                className="paypal-buttons"
+                createOrder={(data, actions) => {
+                    return actions.order.create({
+                        purchase_units: [
+                            {
+                                amount: {
+                                    value: totalPrice,
+                                },
+                            },
+                        ],
+                    });
+                }}
+                onApprove={(data, actions) => {
+                    return actions.order.capture().then((details) => {
+                        const name = details.payer.name.given_name;
+                        alert(`Transaction completed by ${name}`);
+                    });
+                }}
+            />
+            : <h2>Add something to the cart...</h2>}
+                
         </main>
     )
 }
