@@ -1,5 +1,5 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import {Context} from "../Context"
 import CartItem from "../components/CartItem"
 import {PayPalButtons} from "@paypal/react-paypal-js"
@@ -7,6 +7,8 @@ import {PayPalButtons} from "@paypal/react-paypal-js"
 {/* <Link className="place-order" to="/confirmation"><button className="place-order" onClick={placeOrder}>Place Order</button></Link> */}
 export default function Cart() {
     const {cartedItems, setCartedItems} = React.useContext(Context)
+    const navigate = useNavigate();
+
     function placeOrder() {
         setCartedItems([])
     }
@@ -40,7 +42,8 @@ export default function Cart() {
                     return actions.order.capture().then((details) => {
                         const name = details.payer.name.given_name;
                         alert(`Transaction completed by ${name}`);
-                    });
+                        navigate(`/confirmation/${encodeURIComponent(totalPrice)}`)
+                    })
                 }}
             />
             : <h2>Add something to the cart...</h2>}

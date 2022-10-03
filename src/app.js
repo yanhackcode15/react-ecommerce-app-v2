@@ -15,7 +15,7 @@ export default function App() {
                 <Routes>
                     <Route path="cart" element={<Cart />}></Route>
                     <Route path="" element={<Products />}></Route>
-                    <Route path="confirmation" element={<Confirmation />}></Route>
+                    <Route path="confirmation/:price" element={<Confirmation />}></Route>
 
                 </Routes>
             </div>
