@@ -12,6 +12,7 @@
     --red: #EA453C;
     --blue: #0d0232;
     --light-blue: #EFFBFE;
+    --green: #05482a;
 }
 
 
@@ -129,6 +130,7 @@ button {
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
+    background-color: var(--black);
     transition: background 250ms ease-in-out, 
                 transform 150ms ease;
     -webkit-appearance: none;
@@ -137,7 +139,7 @@ button {
 
 button:hover,
 button:focus {
-    background: var(--red);
+    background: var(--green);
 }
 
 button:focus {
@@ -156,5 +158,18 @@ button:active {
 }
 .paypal-buttons {
     align-self: center;
+}
+
+.product-page-container {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 400px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 100px;
+}
+
+.product-info h2, h4 {
+    color: var(--black)
 }
 

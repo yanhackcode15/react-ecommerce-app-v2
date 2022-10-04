@@ -1,6 +1,6 @@
 import React from "react"
 import {Context} from "../Context"
-import { useParams } from "react-router-dom"
+import {useParams} from "react-router-dom"
 
 export default function ProdPage() {
     const {id} = useParams()
@@ -9,16 +9,18 @@ export default function ProdPage() {
     console.log('product', product)
     React.useEffect(()=>{}, [product])
     const renderPage=()=>(
-        <>
-        <div><img src={product.image}/></div>
-        <h2>Product Title</h2>
-        <h6>Product Description</h6>
-        <h6>Product Price</h6>
-        <button>Checkout</button>
-        </>
+        <div className="product-page-container">
+        <div className="product-image"><img className="product-image" src={product.image}/></div>
+        <div className="product-info">
+            <h2>{product.title}</h2>
+            <h4>{product.description}</h4>
+            <h4>{product.price}</h4>
+            <button>Checkout</button>
+        </div>
+        </div>
     )
     return (
-        <div className="product-page-container">
+        <div>
             {product? renderPage(): "loading..."}
             
         </div>

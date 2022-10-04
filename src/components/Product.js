@@ -32,7 +32,7 @@ export default function Product({product, index}){
     }
 
     return (
-        <div className={`grid-item`} onMouseOver={hoverOn} onMouseOut={hoverOff}>
+        <div className="grid-item" onMouseOver={hoverOn} onMouseOut={hoverOff}>
             {showFavoriteIcons()}
             {showCartIcons()}
            <Link to={`/product/${product.id}`}> <img className="product-image" src={product.image}/></Link>
