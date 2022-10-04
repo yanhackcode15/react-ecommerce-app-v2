@@ -10,9 +10,8 @@
 :root {
     --black: #150605;
     --red: #EA453C;
-    --pink: #F47B6E;
+    --blue: #0d0232;
     --light-blue: #EFFBFE;
-    --blue: #ACE6EC;
 }
 
 
@@ -28,7 +27,7 @@ a {
 }
 
 header {
-    background-color: var(--pink);
+    background-color: var(--blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -118,7 +117,7 @@ header {
 }
 
 button.place-order {
-    background-color: var(--pink);
+    background-color: var(--blue);
     width: 250px;
     height: 50px;
     align-self: center;
