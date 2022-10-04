@@ -1,5 +1,4 @@
 import React from "react"
-import getClassName from "../utilities/util"
 import {Context} from "../Context"
 import {Link} from "react-router-dom"
 
