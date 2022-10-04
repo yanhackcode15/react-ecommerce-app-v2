@@ -3,13 +3,13 @@ import Product from "../components/Product"
 import {Context} from "../Context"
 
 
-export default function Photos() {
+export default function Products() {
     //havrest id, src and isfavorite from the provider array
     const {products} = React.useContext(Context)
     
     return (
-            <main className="photos">
-                {products.map((photoObj, index)=><Product key={index} image={photoObj} index={index}/>) }
+            <main className="grid-container">
+                {products.map((product, index)=><Product key={index} product={product} index={index}/>) }
             </main>
            
     )

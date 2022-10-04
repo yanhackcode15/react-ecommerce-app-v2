@@ -36,7 +36,7 @@ header {
     font-size: 1.5em;
 }
 
-.photos {
+.grid-container {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -46,24 +46,14 @@ header {
     margin: 50px 100px 50px 100px;
 }
 
-
-.big {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
-.wide {
-    grid-column: span 2;
-}
-
 /*this is critical for the display*/
-.photo {
+.product-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.grid-image {
+.grid-item {
     position: relative;
     grid-column: span 3;
 }
