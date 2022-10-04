@@ -4,7 +4,6 @@ import {Context} from "../Context"
 import CartItem from "../components/CartItem"
 import {PayPalButtons} from "@paypal/react-paypal-js"
 
-//store cart in local storage
 export default function Cart() {
     const {cartedItems, setCartedItems} = React.useContext(Context)
     const navigate = useNavigate();
@@ -41,7 +40,7 @@ export default function Cart() {
                 onApprove={(data, actions) => {
                     return actions.order.capture().then((details) => {
                         const name = details.payer.name.given_name;
-                        alert(`Transaction completed by ${name}`);
+                        setCartedItems([])
                         navigate(`/confirmation/${encodeURIComponent(totalPrice)}`)
                     })
                 }}
