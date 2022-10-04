@@ -3,8 +3,8 @@ import {Link, useNavigate} from "react-router-dom"
 import {Context} from "../Context"
 import CartItem from "../components/CartItem"
 import {PayPalButtons} from "@paypal/react-paypal-js"
-//add a time delay to mimic order placement
-{/* <Link className="place-order" to="/confirmation"><button className="place-order" onClick={placeOrder}>Place Order</button></Link> */}
+
+//store cart in local storage
 export default function Cart() {
     const {cartedItems, setCartedItems} = React.useContext(Context)
     const navigate = useNavigate();
