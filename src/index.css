@@ -170,6 +170,11 @@ button:active {
 }
 
 .product-info h2, h4 {
-    color: var(--black)
+    color: var(--black);
+    padding-top: 30px; 
+}
+
+.product-info button {
+    margin-top: 30px;
 }
 
