@@ -10,7 +10,7 @@ function ContextProvider(props) {
    
     React.useEffect(()=>{
         const productJson = localStorage.getItem('ecommerceProducts')
-        if (productJson.length){
+        if (productJson && productJson.length){
             setProducts(JSON.parse(productJson))
         }
         else {
