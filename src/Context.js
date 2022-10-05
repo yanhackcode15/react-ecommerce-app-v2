@@ -4,12 +4,13 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
     const [products, setProducts] = React.useState([])
-    const localStorageCartedItems = JSON.parse(localStorage.getItem('cartedItems'))
-    const [cartedItems, setCartedItems] = React.useState(localStorageCartedItems?localStorageCartedItems:[])
+    const sessionStorageCartedItems = JSON.parse(sessionStorage.getItem('cartedItems'))
+    const [cartedItems, setCartedItems] = React.useState(sessionStorageCartedItems?sessionStorageCartedItems:[])
     const api="https://fakestoreapi.com/products?limit=100"
    
     React.useEffect(()=>{
-        const productJson = localStorage.getItem('ecommerceProducts')
+        const productJson = sessionStorage.getItem('ecommerceProducts')
+        console.log('productJson', productJson)
         if (productJson && productJson.length){
             setProducts(JSON.parse(productJson))
         }
@@ -23,7 +24,7 @@ function ContextProvider(props) {
                     throw response
                 }})
             .then(data=>{
-                localStorage.setItem('ecommerceProducts', JSON.stringify(data))
+                sessionStorage.setItem('ecommerceProducts', JSON.stringify(data))
                 setProducts(data)
             })
             .catch(error=>console.error("error fetching", error))
@@ -31,7 +32,7 @@ function ContextProvider(props) {
 
     }, [])
     React.useEffect(()=>{
-        localStorage.setItem('cartedItems', JSON.stringify(cartedItems))
+        sessionStorage.setItem('cartedItems', JSON.stringify(cartedItems))
     },[cartedItems])
 
     function toggleFavorite(image) {
