@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://github.com/yanhackcode15/react-ecommerce-app-v2",
+  "homepage": "https://yanhackcode15.github.io/react-ecommerce-app-v2/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
